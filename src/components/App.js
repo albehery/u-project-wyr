@@ -1,4 +1,5 @@
 import React from 'react';
+
 import AddQuestion from './AddQuestion'
 
 import { handleInitialData } from '../actions/shared'
@@ -7,6 +8,7 @@ import { connect } from 'react-redux'
 
 class App extends React.Component {
   componentDidMount() {
+    this.props.handleInitialData()
   }
   render() {
     return (
