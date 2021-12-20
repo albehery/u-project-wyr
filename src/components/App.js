@@ -3,7 +3,7 @@ import React from 'react';
 //import AddQuestion from './AddQuestion'
 import Login from './Login';
 import Main from './Main';
-import Nav from './Nav';
+import Navigation from './Navigation';
 
 import { handleInitialData } from '../actions/shared'
 import { connect } from 'react-redux'
@@ -17,7 +17,7 @@ class App extends React.Component {
     const { authedUser } = this.props
     return (
       <div>
-        <Nav />
+        <Navigation />
         {authedUser === null ? <Login /> : <Main />}
       </div>
     )
