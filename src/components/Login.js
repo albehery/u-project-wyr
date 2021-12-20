@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import { setAuthedUser } from '../actions/authedUser'
 
+import Button from 'react-bootstrap/Button';
+
 class Login extends React.Component {
 
     handleLogin = (e) => {
@@ -13,7 +15,6 @@ class Login extends React.Component {
             dispatch(setAuthedUser(userID))
         }
     }
-
 
     render() {
         const { users } = this.props;
@@ -27,7 +28,7 @@ class Login extends React.Component {
                             <option key={user.id} value={user.id}>{user.name}</option>
                         )}
                     </select>
-                    <input type="submit" value="Login" />
+                    <Button type="submit">Login</Button>
                 </form>
             </div>
         )

@@ -2,6 +2,8 @@ import React from 'react';
 
 //import AddQuestion from './AddQuestion'
 import Login from './Login';
+import Main from './Main';
+import Nav from './Nav';
 
 import { handleInitialData } from '../actions/shared'
 import { connect } from 'react-redux'
@@ -14,7 +16,10 @@ class App extends React.Component {
   render() {
     const { authedUser } = this.props
     return (
-      authedUser === null ? <Login /> : <main />
+      <div>
+        <Nav />
+        {authedUser === null ? <Login /> : <Main />}
+      </div>
     )
   }
 }
