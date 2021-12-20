@@ -1,12 +1,13 @@
 import React from 'react';
 
-//import AddQuestion from './AddQuestion'
+import AddQuestion from './AddQuestion'
 import Login from './Login';
 import Main from './Main';
 import Navigation from './Navigation';
 
 import { handleInitialData } from '../actions/shared'
 import { connect } from 'react-redux'
+
 
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
       <div>
         <Navigation />
         {authedUser === null ? <Login /> : <Main />}
+        <AddQuestion />
       </div>
     )
   }
