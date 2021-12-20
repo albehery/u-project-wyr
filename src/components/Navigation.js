@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 
 class Navigation extends React.Component{
     render() {
-        const { authedUser } = this.props;
+        const { authedUser, users } = this.props;
         return(
             <div className="nav">
+                {console.log(users[authedUser])}
                 <h3>Navbar</h3>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Add Question</a></li>
-                    <li><a href="#">Leaderboard</a></li>
-                    {authedUser?<li><a href="#">Logout</a></li>:<li><a href="#">not</a></li>}
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/add">Add Question</a></li>
+                    <li><a href="/leaderboard">Leaderboard</a></li>
+                    {authedUser &&
+                     <li><p>Hi, <span>{users[authedUser].name}</span> <a href="/logout">Logout</a></p></li>}
                 </ul>
             </div>
         )
