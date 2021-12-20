@@ -1,13 +1,21 @@
+import React from 'react';
 import AddQuestion from './AddQuestion'
 
+import { handleInitialData } from '../actions/shared'
+import { connect } from 'react-redux'
 
-function App() {
-  return (
-    <div className="App">
-      App
-      <AddQuestion />
-    </div>
-  );
+
+class App extends React.Component {
+  componentDidMount() {
+  }
+  render() {
+    return (
+      <div>
+      app 
+      <AddQuestion />        
+      </div>
+    )
+  }
 }
 
 export default App;
