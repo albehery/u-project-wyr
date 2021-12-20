@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AddQuestion from './AddQuestion'
+//import AddQuestion from './AddQuestion'
 import Login from './Login';
 
 import { handleInitialData } from '../actions/shared'
@@ -12,14 +12,18 @@ class App extends React.Component {
     this.props.handleInitialData()
   }
   render() {
+    const { authedUser } = this.props
     return (
-      <div>
-        app
-        <Login />
-        <AddQuestion />
-      </div>
+      authedUser === null ? <Login /> : <main />
     )
   }
 }
 
-export default connect(null, { handleInitialData })(App)
+
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser,
+  }
+}
+
+export default connect(mapStateToProps, { handleInitialData })(App)
