@@ -5,18 +5,30 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends React.Component {
 
-    handleLogin = e => {
-        e.preventDefault();
-        const { setAuthedUser } = this.props;
-        const authedUser = this.state.value;
-        setAuthedUser(authedUser)
+    handleLogin = (e) => {
+        e.preventDefault()
+        const userID = this.userID.value;
+        const { dispatch } = this.props;
+        if (userID !== '') {
+            dispatch(setAuthedUser(userID))
+        }
     }
 
+
     render() {
-        console.log(this.props.users)
+        const { users } = this.props;
         return (
             <div className="login card">
                 <h3>Login Component</h3>
+                <form onSubmit={this.handleLogin}>
+                    <select ref={(id) => (this.userID = id)}>
+                        <option value="" disabled>Select name to login</option>
+                        {users.map((user) =>
+                            <option key={user.id} value={user.id}>{user.name}</option>
+                        )}
+                    </select>
+                    <input type="submit" value="Login" />
+                </form>
             </div>
         )
     }
@@ -28,5 +40,5 @@ function mapStateToProps({ users }) {
     }
 }
 
-export default connect(mapStateToProps, { setAuthedUser })(Login)
+export default connect(mapStateToProps)(Login)
 
