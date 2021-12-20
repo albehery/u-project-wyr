@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AddQuestion from './AddQuestion'
+import Login from './Login';
 
 import { handleInitialData } from '../actions/shared'
 import { connect } from 'react-redux'
@@ -13,11 +14,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      app 
-      <AddQuestion />        
+        app
+        <Login />
+        <AddQuestion />
       </div>
     )
   }
 }
 
-export default connect(null,{handleInitialData})(App)
+export default connect(null, { handleInitialData })(App)
