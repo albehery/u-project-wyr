@@ -1,10 +1,22 @@
 import React from "react";
 
-class Main extends React.Component{
+import Nav from 'react-bootstrap/Nav'
+import Container from 'react-bootstrap/Container'
+
+class Main extends React.Component {
     render() {
-        return(
+        return (
             <div className="Main">
-                <h3>Main</h3>
+                <Container>
+                    <Nav fill variant="tabs" defaultActiveKey="/home">
+                        <Nav.Item>
+                            <Nav.Link href="/questions" active>Unanswered Questions</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href="/questions">Answered Questions</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+                </Container>
             </div>
         )
     }
