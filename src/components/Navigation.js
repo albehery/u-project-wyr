@@ -10,21 +10,20 @@ class Navigation extends React.Component {
     render() {
         const { authedUser, users } = this.props;
         return (
-                <Navbar bg="primary" variant="dark" expand="false">
-                    <Container>
-                        <Navbar.Brand href="/">WYR</Navbar.Brand>
-                        <Nav className="me-auto">
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/add">Add Question</Nav.Link>
-                            <Nav.Link href="/leaderboard">Leaderboard</Nav.Link>
-                        </Nav>
-                        <Form className="d-flex">
-                        {authedUser &&
-                        <Nav.Link href="/logout">Hello, <span>{users[authedUser].name}</span>Logout</Nav.Link>}
-                            <Button variant="light">Logout</Button>
-                        </Form>
-                    </Container>
-                </Navbar>
+            <Navbar bg="primary" variant="dark" expand="false">
+                <Container>
+                    <Navbar.Brand href="/">WYR</Navbar.Brand>
+                    <Nav className="me-auto">
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/add">Add Question</Nav.Link>
+                        <Nav.Link href="/leaderboard">Leaderboard</Nav.Link>
+                    </Nav>
+                </Container>
+                {authedUser &&
+                    <Navbar.Text>
+                        Hello, {users[authedUser].name} <img src={users[authedUser].avatarURL} /><Nav.Link href="/logout">Logout</Nav.Link>
+                    </Navbar.Text>}
+            </Navbar>
         )
     }
 }

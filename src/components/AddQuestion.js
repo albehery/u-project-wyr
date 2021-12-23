@@ -20,7 +20,10 @@ class AddQuestion extends React.Component {
                             <p className="text-center">OR</p>
                             <Form.Control className="d-grid gap-2" type="text" name="option2" id="option2" placeholder="Enter Option Two Text Here" />
                         </Form>
-                        <Button variant="primary" type="submit">Submit</Button>
+                        <br />
+                        <div className="d-grid gap-2">
+                            <Button variant="primary" type="submit">Submit</Button>
+                        </div>
                     </Card.Body>
                 </Card>
             </div>
