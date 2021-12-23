@@ -19,7 +19,13 @@ class App extends React.Component {
     return (
       <div>
         <Navigation />
+        <br />
+        <br />
+        <br />
         {authedUser === null ? <Login /> : <Main />}
+        <br />
+        <br />
+        <br />
         <AddQuestion />
       </div>
     )

@@ -20,7 +20,7 @@ class Navigation extends React.Component {
                         </Nav>
                         <Form className="d-flex">
                         {authedUser &&
-                        <Nav.Link href="/logout">Hi, <span>{users[authedUser].name}</span>Logout</Nav.Link>}
+                        <Nav.Link href="/logout">Hello, <span>{users[authedUser].name}</span>Logout</Nav.Link>}
                             <Button variant="light">Logout</Button>
                         </Form>
                     </Container>
