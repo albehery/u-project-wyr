@@ -8,7 +8,7 @@ class AddQuestion extends React.Component {
     render() {
         return (
             <div className='add-question'>
-                <Card style={{ width: '25rem' }}>
+                <Card style={{ width: '30rem' }}>
                     <Card.Header className="text-center">Create New Question</Card.Header>
                     <Card.Body>
                         <Card.Title>Would You Rather ...</Card.Title>

@@ -22,7 +22,7 @@ class Login extends React.Component {
         const { users } = this.props;
         return (
             <div className="login">
-                <Card style={{ width: '25rem' }}>
+                <Card style={{ width: '30rem' }}>
                     <Card.Header className="text-center" >Welcome to the Would You Rather App</Card.Header>
                     <Card.Body>
                         <Card.Text>
