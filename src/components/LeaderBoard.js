@@ -1,8 +1,8 @@
 import React from "react";
 
-class LeaderBoard extends React.Component{
+class Leaderboard extends React.Component {
     render() {
-        return(
+        return (
             <div className="leaderboard card">
                 <h3>leaderboard</h3>
             </div>
@@ -10,4 +10,4 @@ class LeaderBoard extends React.Component{
     }
 }
 
-export default LeaderBoard
+export default Leaderboard

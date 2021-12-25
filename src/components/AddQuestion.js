@@ -1,13 +1,18 @@
 import React from "react";
 
+import { connect } from 'react-redux'
+
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
+
 class AddQuestion extends React.Component {
     render() {
+        const { authedUser } = this.props;
         return (
             <div className='add-question'>
+                {authedUser}
                 <Card style={{ width: '30rem' }}>
                     <Card.Header className="text-center">Create New Question</Card.Header>
                     <Card.Body>
@@ -31,4 +36,11 @@ class AddQuestion extends React.Component {
     }
 }
 
-export default AddQuestion
+function mapStateToProps({ authedUser }) {
+    return {
+        authedUser
+    }
+}
+
+
+export default connect(mapStateToProps)(AddQuestion)

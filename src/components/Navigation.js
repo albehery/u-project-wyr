@@ -1,5 +1,7 @@
 import React from "react"
+
 import { connect } from 'react-redux'
+
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
@@ -13,7 +15,7 @@ class Navigation extends React.Component {
                     <Navbar.Brand href="/">WYR</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/ad">Add Question</Nav.Link>
+                        <Nav.Link href="/add">Add Question</Nav.Link>
                         <Nav.Link href="/leaderboard">leaderboard</Nav.Link>
                     </Nav>
                     {authedUser &&
