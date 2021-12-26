@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useParams } from 'react-router-dom'
+
 import { connect } from 'react-redux'
 
 import Card from 'react-bootstrap/Card'
@@ -10,22 +12,19 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
 
-class Question extends React.Component {
-    render() {
-        //let params = useParams()
-        const { authedUser, users, q } = this.props
-        
-        console.log(users)
+function Question() {
+    const params = useParams();
+    const qid =  params.qid
         return (
             <div className="Main">
                 <Card style={{ width: '30rem' }}>
-                    <Card.Header>username asks:</Card.Header>
+                    <Card.Header>username asks: {qid}</Card.Header>
                     <Card.Body>
                         <Container>
                             <Row>
                                 <Col sm="4">
                                     <div className="left">
-                                        <Image src='../users/1.png' roundedCircle alt="" />
+                                        <Image src='../users/1.png' roundedCircle alt="" style={{width:'100px'}} />
                                     </div>
                                 </Col>
                                 <Col sm="8">
@@ -58,13 +57,13 @@ class Question extends React.Component {
             </div>
         )
     }
-}
 
 
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ users, questions },{qid}) {
+    const question = questions[qid]
     return {
-        authedUser,
         users,
+        question
     }
 }
 
