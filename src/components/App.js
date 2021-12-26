@@ -25,13 +25,13 @@ class App extends React.Component {
     const { authedUser } = this.props
     return (
       <div>
-        <Navigation />
-        <Container>
-          <BrowserRouter>
+        <BrowserRouter>
+          <Navigation />
+          <Container>
             {
               authedUser === null ?
                 <Routes>
-                  <Route  path="*" element={<Login />} />
+                  <Route path="*" element={<Login />} />
                 </Routes>
                 :
                 <Routes>
@@ -42,8 +42,8 @@ class App extends React.Component {
                   <Route path="*" element={<NotFound />} />
                 </Routes>
             }
-          </BrowserRouter>
-        </Container>
+          </Container>
+        </BrowserRouter>
       </div>
     )
   }

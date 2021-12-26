@@ -1,5 +1,5 @@
 import React from "react"
-
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Navbar from 'react-bootstrap/Navbar'
@@ -12,11 +12,11 @@ class Navigation extends React.Component {
         return (
             <Navbar bg="primary" variant="dark">
                 <Container>
-                    <Navbar.Brand href="/">WYR</Navbar.Brand>
+                    <Navbar.Brand className="nav-link">WYR</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/add">Add Question</Nav.Link>
-                        <Nav.Link href="/leaderboard">leaderboard</Nav.Link>
+                        <Link to="/" className="nav-link">Home</Link>
+                        <Link to="/add" className="nav-link">Add Question</Link>
+                        <Link to="/leaderboard" className="nav-link">leaderboard</Link>
                     </Nav>
                     {authedUser &&
                         <Navbar.Text>
