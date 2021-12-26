@@ -28,7 +28,7 @@ class Navigation extends React.Component {
                                 style={{ height: 40 + 'px' }}
                             />
                             &nbsp;
-                            <a href="/logout">Logout</a>
+                            <a href="/">Logout</a>
                         </Navbar.Text>
                     }
                 </Container>

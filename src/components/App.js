@@ -7,6 +7,7 @@ import Login from './Login'
 import Navigation from './Navigation'
 import Leaderboard from './Leaderboard'
 import Question from './Question'
+import Result from './Result'
 import Main from './Main'
 import NotFound from './NotFound'
 
@@ -38,7 +39,7 @@ class App extends React.Component {
                   <Route exact path="/" element={<Main />} />
                   <Route path="/add" element={<AddQuestion />} />
                   <Route path="/leaderboard" element={<Leaderboard />} />
-                  <Route path="/questions/:qid" element={<Question />} />
+                  <Route path="/questions/:qid" element={<Result />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
             }

@@ -21,8 +21,8 @@ class Leaderboard extends React.Component {
                             </Col>
                             <Col xs={6} className="left">
                                 <Card.Title>{user.name}</Card.Title>
-                                <Card.Text>Answered Questions: {user.answers}</Card.Text>
-                                <Card.Text>Created Questions: {user.created}</Card.Text>
+                                <Card.Text>Answered Questions: {user.answeredCount}</Card.Text>
+                                <Card.Text>Created Questions: {user.createdCount}</Card.Text>
                             </Col>
                             <Col xs={3}>
                                 <Card.Text>
@@ -43,12 +43,14 @@ function mapStateToProps({ users }) {
             id: user.id,
             name: user.name,
             avatarURL: user.avatarURL,
-            answers: Object.values(user.answers).length,
-            created: user.questions.length,
+            answeredCount: Object.values(user.answers).length,
+            createdCount: user.questions.length,
             score: Object.values(user.answers).length + user.questions.length
         }))
-        .sort((a, b) => b.total - a.total)
+        .sort((a, b) => b.score - a.score)
         .slice(0, 3);
+        console.log(usersLead)
+
     return {
         usersLead,
     }

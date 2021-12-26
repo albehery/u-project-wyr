@@ -12,19 +12,22 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
 
-function Question() {
+function Question(props) {
     const params = useParams();
     const qid =  params.qid
+    console.log(qid)
+    const { questions,users } = props
+    const question = questions[qid]
         return (
             <div className="Main">
                 <Card style={{ width: '30rem' }}>
-                    <Card.Header>username asks: {qid}</Card.Header>
+                    <Card.Header>{users[question.author].name} asks:</Card.Header>
                     <Card.Body>
                         <Container>
                             <Row>
                                 <Col sm="4">
                                     <div className="left">
-                                        <Image src='../users/1.png' roundedCircle alt="" style={{width:'100px'}} />
+                                        <Image src={users[question.author].avatarURL} roundedCircle alt="" style={{width:'100px'}} />
                                     </div>
                                 </Col>
                                 <Col sm="8">
@@ -32,7 +35,7 @@ function Question() {
                                     <Form>
                                         <Form.Check
                                             inline
-                                            label='optionOne'
+                                            label={question.optionOne.text}
                                             value="optionOne"
                                             name="vote"
                                             type="radio"
@@ -40,7 +43,7 @@ function Question() {
                                         <br />
                                         <Form.Check
                                             inline
-                                            label='optionTwo'
+                                            label={question.optionTwo.text}
                                             value="optionTwo"
                                             name="vote"
                                             type="radio"
@@ -59,11 +62,10 @@ function Question() {
     }
 
 
-function mapStateToProps({ users, questions },{qid}) {
-    const question = questions[qid]
+function mapStateToProps({ users, questions }) {
     return {
         users,
-        question
+        questions,
     }
 }
 

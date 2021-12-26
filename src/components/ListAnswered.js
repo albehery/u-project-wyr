@@ -12,7 +12,7 @@ class Answered extends React.Component {
             
             <div>
                 {answeredQs.map(q =>
-                <Teaser key={q.id} q={q}/>
+                <Teaser key={q.id} q={q} answered/>
                 )}
             </div>
         )

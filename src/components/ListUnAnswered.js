@@ -12,7 +12,7 @@ class Unanswered extends React.Component {
             
             <div>
                 {unansweredQs.map(q =>
-                <Teaser key={q.id} q={q}/>
+                <Teaser key={q.id} q={q} answered/>
                 )}
             </div>
         )
