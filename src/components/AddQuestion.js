@@ -36,11 +36,11 @@ class AddQuestion extends React.Component {
     }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ users, authedUser }) {
     return {
-        authedUser
+        authedUser,
+        users
     }
 }
 
-
-export default connect(mapStateToProps)(AddQuestion)
+export default connect(mapStateToProps)(AddQuestion);

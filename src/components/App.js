@@ -4,11 +4,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import AddQuestion from './AddQuestion'
 import Login from './Login'
-import Main from './Main'
 import Navigation from './Navigation'
-import Question from './Question'
 import Leaderboard from './Leaderboard'
 import NotFound from './NotFound'
+import Question from './Question'
+import Answered from './ListAnswered'
 
 import Container from 'react-bootstrap/Container'
 
@@ -35,7 +35,7 @@ class App extends React.Component {
                 </Routes>
                 :
                 <Routes>
-                  <Route exact path="/" element={<Main />} />
+                  <Route exact path="/" element={<Answered />} />
                   <Route path="/add" element={<AddQuestion />} />
                   <Route path="/leaderboard" element={<Leaderboard />} />
                   <Route path="/questions/:qid" element={<Question />} />
