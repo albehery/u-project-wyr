@@ -2,6 +2,8 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
+import { Link } from 'react-router-dom'
+
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -31,7 +33,7 @@ class QuestionTeaser extends React.Component {
                                     </Card.Text>
 
                                     <div className="d-grid gap-2">
-                                        <Button variant="primary" href={'questions/' + q.id}>View Poll</Button>
+                                        <Button as={Link} variant="primary" to={'questions/' + q.id}>View Poll</Button>
                                     </div>
                                 </Col>
                             </Row>

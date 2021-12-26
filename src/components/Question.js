@@ -13,7 +13,8 @@ import Image from 'react-bootstrap/Image'
 class Question extends React.Component {
     render() {
         //let params = useParams()
-        const { q, users } = this.props
+        const { authedUser, users, q } = this.props
+        
         console.log(users)
         return (
             <div className="Main">
@@ -60,8 +61,9 @@ class Question extends React.Component {
 }
 
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ authedUser, users }) {
     return {
+        authedUser,
         users,
     }
 }
