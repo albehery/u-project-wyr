@@ -14,7 +14,7 @@ class Question extends React.Component {
     render() {
         //let params = useParams()
         const { q, users } = this.props
-
+        console.log(users)
         return (
             <div className="Main">
                 <Card style={{ width: '30rem' }}>
@@ -24,7 +24,7 @@ class Question extends React.Component {
                             <Row>
                                 <Col sm="4">
                                     <div className="left">
-                                        <Image src='/users/1.png' roundedCircle alt="" />
+                                        <Image src='../users/1.png' roundedCircle alt="" />
                                     </div>
                                 </Col>
                                 <Col sm="8">
