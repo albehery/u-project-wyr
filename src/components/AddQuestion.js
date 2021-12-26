@@ -7,9 +7,31 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 
+import { handleSaveQuestion } from "../actions/questions";
+
 class AddQuestion extends React.Component {
+    state = {
+        optionOne: '',
+        optionTwo: ''
+    }
+
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const { dispatch, authedUser } = this.props
+        const { optionOne, optionTwo } = this.state
+
+        if (optionOne && optionTwo) {
+            dispatch(handleSaveQuestion(optionOne, optionTwo, authedUser))
+        }
+    }
+
     render() {
-        const { authedUser } = this.props;
+
+        const { optionOne, optionTwo } = this.state;
         return (
             <div className='add-question'>
                 <Card style={{ width: '40rem' }}>
@@ -18,16 +40,16 @@ class AddQuestion extends React.Component {
                         <Card.Title>Would You Rather ...</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Complete the question</Card.Subtitle>
                         <br />
-                        <Form>
-                            <Form.Control className="d-grid gap-2" type="text" name="optionOne" id="optionOne" placeholder="Enter Option One Text Here" />
+                        <Form onSubmit={this.handleSubmit}>
+                            <Form.Control className="d-grid gap-2" type="text" name="optionOne" id="optionOne" placeholder="Enter Option One Text Here" onChange={this.handleChange} />
                             <br />
                             <p className="text-center">OR</p>
-                            <Form.Control className="d-grid gap-2" type="text" name="optionTwo" id="optionTwo" placeholder="Enter Option Two Text Here" />
+                            <Form.Control className="d-grid gap-2" type="text" name="optionTwo" id="optionTwo" placeholder="Enter Option Two Text Here" onChange={this.handleChange} />
+                            <br />
+                            <div className="d-grid gap-2">
+                                <Button variant="primary" type="submit" disabled={optionOne === '' || optionTwo === ''}>Submit</Button>
+                            </div>
                         </Form>
-                        <br />
-                        <div className="d-grid gap-2">
-                            <Button variant="primary" type="submit">Submit</Button>
-                        </div>
                     </Card.Body>
                 </Card>
             </div>
