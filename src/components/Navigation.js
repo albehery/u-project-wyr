@@ -21,11 +21,13 @@ class Navigation extends React.Component {
                     {authedUser &&
                         <Navbar.Text>
                             Hello, {users[authedUser].name}
+                            &nbsp;
                             <img
                                 src={users[authedUser].avatarURL}
                                 alt={users[authedUser].name + 'user avatar'}
                                 style={{ height: 40 + 'px' }}
                             />
+                            &nbsp;
                             <a href="/logout">Logout</a>
                         </Navbar.Text>
                     }

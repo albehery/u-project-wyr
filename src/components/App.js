@@ -6,9 +6,9 @@ import AddQuestion from './AddQuestion'
 import Login from './Login'
 import Navigation from './Navigation'
 import Leaderboard from './Leaderboard'
-import NotFound from './NotFound'
 import Question from './Question'
-import Answered from './ListAnswered'
+import Main from './Main'
+import NotFound from './NotFound'
 
 import Container from 'react-bootstrap/Container'
 
@@ -27,7 +27,7 @@ class App extends React.Component {
       <div>
         <BrowserRouter>
           <Navigation />
-          <Container>
+          <Container style={{margin:'1rem auto', width:'42rem'}}>
             {
               authedUser === null ?
                 <Routes>
@@ -35,7 +35,7 @@ class App extends React.Component {
                 </Routes>
                 :
                 <Routes>
-                  <Route exact path="/" element={<Answered />} />
+                  <Route exact path="/" element={<Main />} />
                   <Route path="/add" element={<AddQuestion />} />
                   <Route path="/leaderboard" element={<Leaderboard />} />
                   <Route path="/questions/:qid" element={<Question />} />

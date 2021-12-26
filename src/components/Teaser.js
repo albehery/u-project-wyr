@@ -14,7 +14,7 @@ class QuestionTeaser extends React.Component {
         const { users, q } = this.props
         return (
             <div>
-                <Card style={{ width: '30rem' }}>
+                <Card style={{ width: '30rem', margin:'1rem auto'}}>
                     <Card.Header>{users[q.author].name} asks:</Card.Header>
                     <Card.Body>
                         <Container>

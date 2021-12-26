@@ -2,7 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import QTeaser from './QTeaser'
+import Teaser from './Teaser'
 
 class Unanswered extends React.Component {
     render() {
@@ -12,7 +12,7 @@ class Unanswered extends React.Component {
             
             <div>
                 {unansweredQs.map(q =>
-                <QTeaser key={q.id} q={q}/>
+                <Teaser key={q.id} q={q}/>
                 )}
             </div>
         )

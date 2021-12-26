@@ -1,22 +1,24 @@
 import React from "react";
 
-import Nav from 'react-bootstrap/Nav'
-import Container from 'react-bootstrap/Container'
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
+import ListAnswered from './ListAnswered'
+import ListUnanswered from './ListUnanswered'
+
+
 
 class Main extends React.Component {
     render() {
         return (
             <div className="Main">
-                <Container>
-                    <Nav fill variant="tabs" defaultActiveKey="/home">
-                        <Nav.Item>
-                            <Nav.Link href="/questions" active>Unanswered Questions</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link href="/questions">Answered Questions</Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-                </Container>
+                <Tabs fill defaultActiveKey="Unanswered" style={{width:'40rem'}} >
+                    <Tab eventKey="Unanswered" title="Unanswered Questions">
+                        <ListUnanswered />
+                    </Tab>
+                    <Tab eventKey="Answered" title="Answered Questions">
+                        <ListAnswered />
+                    </Tab>
+                </Tabs>
             </div>
         )
     }
