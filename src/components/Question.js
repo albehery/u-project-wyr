@@ -1,7 +1,5 @@
 import React from "react";
 
-import { useParams } from 'react-router-dom'
-
 import { connect } from 'react-redux'
 
 import Card from 'react-bootstrap/Card'
@@ -12,12 +10,17 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
 
-function Question(props) {
-    const params = useParams();
-    const qid =  params.qid
-    console.log(qid)
-    const { questions,users } = props
-    const question = questions[qid]
+
+function handleSubmit(e) {
+    //e.preventDefault()
+    //const vote = e.target.vote.value
+    //console.log(vote)
+}
+
+class Question extends React.Component {
+    render() {
+        const { questions, users, qid } = this.props
+        const question =  questions[qid]
         return (
             <div className="Main">
                 <Card style={{ width: '30rem' }}>
@@ -27,12 +30,12 @@ function Question(props) {
                             <Row>
                                 <Col sm="4">
                                     <div className="left">
-                                        <Image src={users[question.author].avatarURL} roundedCircle alt="" style={{width:'100px'}} />
+                                        <Image src={users[question.author].avatarURL} roundedCircle alt="" style={{ width: '100px' }} />
                                     </div>
                                 </Col>
                                 <Col sm="8">
                                     <Card.Title>Would You Rather ... </Card.Title>
-                                    <Form>
+                                    <Form onSubmit={handleSubmit()}>
                                         <Form.Check
                                             inline
                                             label={question.optionOne.text}
@@ -60,12 +63,14 @@ function Question(props) {
             </div>
         )
     }
+}
 
 
-function mapStateToProps({ users, questions }) {
+function mapStateToProps({ users, questions, authedUser }) {
     return {
         users,
         questions,
+        authedUser
     }
 }
 

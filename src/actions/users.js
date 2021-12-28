@@ -1,4 +1,6 @@
 export const GET_USERS = 'GET_USERS'
+export const ADD_ANSWER_TO_USER = 'ADD_ANSWER_TO_USER'
+export const ADD_QUESTION_TO_USER = 'ADD_QUESTION_TO_USER'
 
 export function getUsers(users) {
     return {
@@ -6,3 +8,20 @@ export function getUsers(users) {
         users,
     }
 }
+
+export function addAnswerToUser({authedUser, qId, answer}) {
+    return {
+        type: ADD_ANSWER_TO_USER,
+        authedUser,
+        qId,
+        answer
+    }
+}
+
+export function addQuestionToUser(question) {
+    return {
+        type: ADD_QUESTION_TO_USER,
+        question
+    }
+}
+

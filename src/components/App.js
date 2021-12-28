@@ -6,7 +6,7 @@ import AddQuestion from './AddQuestion'
 import Login from './Login'
 import Navigation from './Navigation'
 import Leaderboard from './Leaderboard'
-import Question from './Question'
+import Questions from './Questions'
 import Result from './Result'
 import Main from './Main'
 import NotFound from './NotFound'
@@ -25,27 +25,25 @@ class App extends React.Component {
   render() {
     const { authedUser } = this.props
     return (
-      <div>
-        <BrowserRouter>
-          <Navigation />
-          <Container style={{margin:'1rem auto', width:'42rem'}}>
-            {
-              authedUser === null ?
-                <Routes>
-                  <Route path="*" element={<Login />} />
-                </Routes>
-                :
-                <Routes>
-                  <Route exact path="/" element={<Main />} />
-                  <Route path="/add" element={<AddQuestion />} />
-                  <Route path="/leaderboard" element={<Leaderboard />} />
-                  <Route path="/questions/:qid" element={<Result />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-            }
-          </Container>
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <Navigation />
+        <Container style={{ margin: '1rem auto', width: '42rem' }}>
+          {
+            authedUser === null ?
+              <Routes>
+                <Route path="*" element={<Login />} />
+              </Routes>
+              :
+              <Routes>
+                <Route exact path="/" element={<Main />} />
+                <Route path="/add" element={<AddQuestion />} />
+                <Route path="/leaderboard" element={<Leaderboard />} />
+                <Route path="/questions/:qid" element={<Questions />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+          }
+        </Container>
+      </BrowserRouter>
     )
   }
 }

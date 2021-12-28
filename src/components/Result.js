@@ -41,12 +41,12 @@ function Result(props) {
                                 <Alert variant="success">
                                     <p> {question.optionOne.text} {authedUserVote === 'optionOne' &&   <Badge bg="warning" text="dark">Your Vote</Badge>}</p>
 
-                                    <ProgressBar variant="success" now={((optionOneVotesCount / totalVotes) * 100).toFixed(2)} label={((optionOneVotesCount / totalVotes) * 100).toFixed(2) + '%'} />
+                                    <ProgressBar variant="success" now={((optionOneVotesCount / totalVotes) * 100).toFixed(1)} label={((optionOneVotesCount / totalVotes) * 100).toFixed(1) + '%'} />
                                     <p style={{textAlign:'center'}}>{optionOneVotesCount} out of {totalVotes} votes</p>
                                 </Alert>
                                 <Alert variant="success">
                                     <p> {question.optionTwo.text} {authedUserVote === 'optionTwo' &&   <Badge bg="warning" text="dark">Your Vote</Badge>}</p>
-                                    <ProgressBar variant="success" now={((optionTwoVotesCount / totalVotes) * 100).toFixed(2)} label={((optionTwoVotesCount / totalVotes) * 100).toFixed(2) + '%'} />
+                                    <ProgressBar variant="success" now={((optionTwoVotesCount / totalVotes) * 100).toFixed(1)} label={((optionTwoVotesCount / totalVotes) * 100).toFixed(1) + '%'} />
                                     <p style={{ textAlign: 'center' }}>{optionTwoVotesCount} out of {totalVotes} votes</p>
                                 </Alert>
                             </Col>
