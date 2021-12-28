@@ -11,13 +11,13 @@ import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
 
 
-function handleSubmit(e) {
-    //e.preventDefault()
-    //const vote = e.target.vote.value
-    //console.log(vote)
-}
-
 class Question extends React.Component {
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const vote = e.target.vote.value
+        console.log(vote)
+    }
+
     render() {
         const { questions, users, qid } = this.props
         const question =  questions[qid]
@@ -35,7 +35,7 @@ class Question extends React.Component {
                                 </Col>
                                 <Col sm="8">
                                     <Card.Title>Would You Rather ... </Card.Title>
-                                    <Form onSubmit={handleSubmit()}>
+                                    <Form onSubmit={this.handleSubmit}>
                                         <Form.Check
                                             inline
                                             label={question.optionOne.text}
