@@ -9,7 +9,19 @@ import { connect } from 'react-redux'
 
 class Leaderboard extends React.Component {
     render() {
-        const { usersLead } = this.props;
+        const { users } = this.props;
+        const usersLead = Object.values(users)
+        .map(user => ({
+            id: user.id,
+            name: user.name,
+            avatarURL: user.avatarURL,
+            answeredCount: Object.values(user.answers).length,
+            createdCount: user.questions.length,
+            score: Object.values(user.answers).length + user.questions.length
+        }))
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3)
+
         console.log(usersLead)
         return (
             usersLead.map(user => (
@@ -38,21 +50,8 @@ class Leaderboard extends React.Component {
 }
 
 function mapStateToProps({ users }) {
-    const usersLead = Object.values(users)
-        .map(user => ({
-            id: user.id,
-            name: user.name,
-            avatarURL: user.avatarURL,
-            answeredCount: Object.values(user.answers).length,
-            createdCount: user.questions.length,
-            score: Object.values(user.answers).length + user.questions.length
-        }))
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 3);
-        console.log(usersLead)
-
     return {
-        usersLead,
+        users,
     }
 }
 

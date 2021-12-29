@@ -18,39 +18,32 @@ function saveQuestion(question) {
   }
 }
 
-function saveQuestionAnswer({ authedUser, questionId, answer }) {
+function saveQuestionAnswer({ authedUser, qid, answer }) {
   return {
     type: SAVE_QUESTION_ANSWER,
     authedUser,
-    questionId,
+    qid,
     answer
   }
 }
 
-export function handleSaveQuestion(optionOneText, optionTwoText) {
-  return (dispatch, getState) => {
-    const { authedUser } = getState();
+export function handleSaveQuestion(optionOneText, optionTwoText, author) {
+  return (dispatch) => {
     return _saveQuestion({
       optionOneText,
       optionTwoText,
-      author: authedUser
-    }).then(question => dispatch(saveQuestion(question)));
+      author,
+    }).then(question => dispatch(saveQuestion(question)))
   };
 }
 
 
-export function handleAddAnswer({ authedUser, qid, answer }) {
+export function handleSaveQuestionAnswer( authedUser, qid, answer ) {
   return (dispatch) => {
-    dispatch(saveQuestionAnswer(
-      {
-        authedUser,
-        qid,
-        answer,
-      }))
     return _saveQuestionAnswer({
       authedUser,
       qid,
       answer
-    })
+    }).then(dispatch(saveQuestionAnswer({authedUser, qid, answer})))
   }
 }

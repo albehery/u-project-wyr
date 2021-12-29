@@ -9,7 +9,8 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 
-import { handleSaveQuestion } from "../actions/questions";
+import { handleSaveQuestion } from '../actions/questions'
+//import { addQuestionToUser } from '../actions/users'
 
 class AddQuestion extends React.Component {
     state = {
@@ -19,18 +20,19 @@ class AddQuestion extends React.Component {
     }
 
     handleChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
         const { dispatch, authedUser } = this.props
         const { optionOne, optionTwo } = this.state
-        this.setState({navigate:true})
+        
 
         if (optionOne && optionTwo) {
             dispatch(handleSaveQuestion(optionOne, optionTwo, authedUser))
             console.log('done')
+            this.setState({navigate:true})
         }
     }
 

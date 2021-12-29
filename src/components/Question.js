@@ -11,16 +11,32 @@ import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
 
 
+import { handleSaveQuestionAnswer } from '../actions/questions'
+
 class Question extends React.Component {
+    state = {
+        answer: ''
+    }
+
+    handleChange = (e) => {
+        this.setState({ answer: e.target.value })
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
-        const vote = e.target.vote.value
-        console.log(vote)
+        const { dispatch, authedUser, qid } = this.props
+        const answer = e.target.vote.value
+        console.log(answer)
+        if (answer && answer !== ''){
+            dispatch(handleSaveQuestionAnswer(authedUser, qid, answer))
+            console.log('done')
+        }
     }
 
     render() {
         const { questions, users, qid } = this.props
-        const question =  questions[qid]
+        const question = questions[qid]
+        const { answer } = this.state
         return (
             <div className="Main">
                 <Card style={{ width: '30rem' }}>
@@ -42,6 +58,7 @@ class Question extends React.Component {
                                             value="optionOne"
                                             name="vote"
                                             type="radio"
+                                            onChange={this.handleChange}
                                         />
                                         <br />
                                         <Form.Check
@@ -50,9 +67,10 @@ class Question extends React.Component {
                                             value="optionTwo"
                                             name="vote"
                                             type="radio"
+                                            onChange={this.handleChange}
                                         />
                                         <div className="d-grid gap-2">
-                                            <Button type="submit" variant="primary">Submit</Button>
+                                            <Button type="submit" variant="primary" disabled={answer === ''}>Submit</Button>
                                         </div>
                                     </Form>
                                 </Col>
