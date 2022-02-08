@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Navigate } from 'react-router-dom'
+
 import { connect } from 'react-redux'
 
 import Card from 'react-bootstrap/Card'
@@ -15,7 +17,8 @@ import { handleSaveQuestionAnswer } from '../actions/questions'
 
 class Question extends React.Component {
     state = {
-        answer: ''
+        answer: '',
+        navigate:false
     }
 
     handleChange = (e) => {
@@ -30,15 +33,18 @@ class Question extends React.Component {
         if (answer && answer !== ''){
             dispatch(handleSaveQuestionAnswer(authedUser, qid, answer))
             console.log('done')
+            this.setState({navigate: true})
         }
     }
 
     render() {
         const { questions, users, qid } = this.props
         const question = questions[qid]
-        const { answer } = this.state
+        const { answer,navigate } = this.state
+
         return (
             <div className="Main">
+                {navigate === true && (<Navigate to='/' />)}
                 <Card style={{ width: '30rem' }}>
                     <Card.Header>{users[question.author].name} asks:</Card.Header>
                     <Card.Body>

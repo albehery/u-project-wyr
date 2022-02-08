@@ -1,4 +1,5 @@
 import { _saveQuestion, _saveQuestionAnswer } from "../_DATA";
+//import { addAnswerToUser } from './users'
 
 export const GET_QUESTIONS = 'GET_QUESTIONS'
 export const SAVE_QUESTION = 'SAVE_QUESTION'
@@ -44,6 +45,7 @@ export function handleSaveQuestionAnswer( authedUser, qid, answer ) {
       authedUser,
       qid,
       answer
-    }).then(dispatch(saveQuestionAnswer({authedUser, qid, answer})))
+    }).then(
+      dispatch(saveQuestionAnswer({authedUser, qid, answer})))
   }
 }
